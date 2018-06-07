@@ -44,7 +44,6 @@ public class IPScanner {
 	public String findMy3bitsIp() {
 
 		String tempAdres = null;
-
 		boolean flag = false;
 
 		try {
