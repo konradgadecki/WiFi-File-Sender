@@ -22,7 +22,7 @@ public class IPScanner {
 
 	public void go() {
 
-		FindIP.first3bitsOfIpAddress = findMy3bitsIp();
+		FindIP.First3OctetsOfIpAddress = findMy3bitsIp();
 
 		for (int j = 0; j < 260; j++) {
 			new FindIP().start();
@@ -34,28 +34,28 @@ public class IPScanner {
 		} catch (Exception e) {
 		}
 
-		setIpList(FindIP.ipList);
+		setIpList(FindIP.IpList);
 
 		// after research clear the main list of all ip addresses
-		FindIP.ipList.clear();
+		FindIP.IpList.clear();
 
 	}
 
 	public String findMy3bitsIp() {
 
-		String tempAdres = null;
+		String tempAddress = null;
 		boolean flag = false;
 
 		try {
-			tempAdres = InetAddress.getLocalHost().getHostAddress();
+			tempAddress = InetAddress.getLocalHost().getHostAddress();
 
 		} catch (UnknownHostException e) {
 			e.printStackTrace();
 		}
 
 		while (flag == false) {
-			if (tempAdres.charAt(tempAdres.length() - 1) != '.') {
-				tempAdres = tempAdres.substring(0, tempAdres.length() - 1);
+			if (tempAddress.charAt(tempAddress.length() - 1) != '.') {
+				tempAddress = tempAddress.substring(0, tempAddress.length() - 1);
 			} else
 				flag = true;
 		}
@@ -64,7 +64,7 @@ public class IPScanner {
 		 * 
 		 * return f.e.: 192.168.0.
 		 */
-		return tempAdres;
+		return tempAddress;
 
 	}
 }

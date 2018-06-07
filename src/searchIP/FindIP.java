@@ -1,21 +1,17 @@
 package searchIP;
-
- 
 import java.net.InetAddress;
 import java.util.ArrayList;
 
 public class FindIP extends Thread {
 
-	public static int i = 0;
-
-	public static ArrayList<String> ipList = new ArrayList<String>();
-
-	public static String first3bitsOfIpAddress = null;
+	private static int i = 0;
+	public static ArrayList<String> IpList = new ArrayList<String>();
+	public static String First3OctetsOfIpAddress = null;
 	 
 	public void run() {
 
 		try {
-			String host = first3bitsOfIpAddress + i++;
+			String host = First3OctetsOfIpAddress + i++;
 			if (InetAddress.getByName(host).isReachable(1000)) {
 				addToIPlist(host);
 			}
@@ -29,7 +25,7 @@ public class FindIP extends Thread {
 	}
 
 	public synchronized void addToIPlist(String s) {
-		ipList.add(s);
+		IpList.add(s);
 	}
 
 }
